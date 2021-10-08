@@ -1,0 +1,14 @@
+services:
+  web:
+    build:
+      context: .
+    image: inveniosoftware/inveniordm:v7.0-dev
+    ports:
+      - '5000:5000'
+    volumes:
+      # Needs to be improved, so that not everything is being put in the image
+      # or e.g. split instance folder from other stuff.
+      # Does the instance folder have to be on the host machine or can it be
+      # in a shared volume ?
+      # E.g. right now we get .bash_history etc created in the host folder.
+      - '.:/opt/app-root/src'
